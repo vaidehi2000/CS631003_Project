@@ -1,0 +1,30 @@
+<!-- templates/myapp/view_table.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>View Table: {{ table_name }}</h2>
+
+    {% if rows %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <!-- Assuming the first row contains column headers -->
+                    {% for column in rows.0.keys %}
+                        <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        {% for value in row.values %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data available for {{ table_name }}</p>
+    {% endif %}
+{% endblock %}

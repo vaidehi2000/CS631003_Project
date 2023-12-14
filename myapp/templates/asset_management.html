@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Asset Management</h2>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Database Table</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for table in tables %}
+                <tr>
+                    <td>{{ table.name }}</td>
+                    <td>
+                        <a href="{% url 'view_table' table %}">&#128065; View
+                        </a>
+                        <a href="{% url 'insert_table' table %}">
+                            &#43; Insert
+                        </a>
+                        {% comment %} <a href="{% url 'update_table' table %}">
+                            &#9998; Update
+                        </a> {% endcomment %}
+                        <a href="{% url 'update_table' table %}">
+                            &#9998; Update
+                        </a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% comment %} <!-- templates/myapp/asset_management.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Asset Management</h2>
+    <table>
+        <!-- Table header -->
+        <tr>
+            <th>Table Name</th>
+            <th>View</th>
+            <th>Insert</th>
+            <th>Update</th>
+        </tr>
+
+        <!-- Loop through a list of tables -->
+        {% for table in tables %}
+            <tr>
+                <td>{{ table.name }}</td>
+                <td><a href="{% url 'view_table' table.name %}">View</a></td>
+                <td><a href="{% url 'insert_table' table.name %}">Insert</a></td>
+                <td><a href="{% url 'update_table' table.name %}">Update</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %} {% endcomment %}
+
+
+
+
+
+{% comment %} <!-- templates/myapp/asset_management.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Asset Management</h2>
+    <!-- Add your table or content for Asset Management here -->
+    <table>
+        <!-- Table rows for each table in the database -->
+        <tr>
+            <td>Animals</td>
+            <td><a href="#">View</a></td>
+            <td><a href="#">Insert</a></td>
+            <td><a href="#">Update</a></td>
+        </tr>
+        <!-- Add more rows for other tables -->
+    </table>
+{% endblock %} {% endcomment %}

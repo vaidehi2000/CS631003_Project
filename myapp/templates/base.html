@@ -1,0 +1,36 @@
+<!-- templates/myapp/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtleback Zoo Management</title>
+    <!-- Add your CSS links or styles here -->
+</head>
+<body>
+
+    <header>
+        <h1>Turtleback Zoo Management</h1>
+        <!-- Navigation dropdown -->
+        <nav>
+            <label for="menu">Select Module:</label>
+            <select id="menu" onchange="window.location.href=this.value">
+                <option value="/">Home</option>
+                <option value="/asset_management">Asset Management</option>
+                <option value="/daily_zoo_activity">Daily Zoo Activity</option>
+                <option value="/management_reporting">Management Reporting</option>
+            </select>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Add footer content if needed -->
+    </footer>
+
+</body>
+</html>
